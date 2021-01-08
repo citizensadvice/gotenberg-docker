@@ -9,10 +9,10 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: Push to public ECR
-      uses: citizensadvice/publish-to-public-ecr-github-action@main
-      id: ecr
-      with:
-        aws-access-key-id: ${{ secrets.PUBLIC_PUSH_ECR_AWS_KEY}}
-        aws-secret-access-key: ${{ secrets.PUBLIC_PUSH_ECR_AWS_SECRET }}
-        ecr-alias: citizensadvice
+    - name: Extract branch name
+      shell: bash
+      run: echo "##[set-output name=branch;]$(echo sed -E "s/refs\/(pull\/[[:digit:]]*|heads)\///g")"
+      id: extract_branch
+    - name: test
+      run: echo ${{ steps.extract_branch.outputs.branch }}
+
