@@ -1,4 +1,4 @@
-FROM thecodingmachine/gotenberg:7.8.1
+FROM gotenberg/gotenberg:8.24.0
 
 USER root
 
