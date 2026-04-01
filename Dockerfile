@@ -1,4 +1,4 @@
-FROM gotenberg/gotenberg:8.24.0
+FROM gotenberg/gotenberg:8.29.1
 
 USER root
 
